@@ -27,10 +27,16 @@ font pango:System San Francisco Display 8
 # font, it doesn’t scale on retina/hidpi displays.
 
 # startup settings
-exec_always feh --bg-scale /home/nazmul/Downloads/Image/Flowing_Ribbon.jpg
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always feh --randomize --bg-scale /home/nazmul/Pictures/theme/bodhi.png
 exec_always --no-startup--id ibus daemon
 exec killall -q <notification daemon>
 exec --no-startup-id dunst -config </home/nazmul/.config/dunst/dunstrc>
+#exec --no-startup-id compton --config ~/.config/i3/compton.conf
+exec_always --no-startup-id xautolock -time 10 -locker i3lock-fancy
+# uncomment it if terminal and rofi keep transparent
+exec_always compton
+exec_always --no-startup-id nm-applet
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -100,12 +106,12 @@ bindsym $mod+a focus parent
 # focus the child container
 # bindsym $mod+d focus child
 
-set $workspace1 "1:Browser"
-set $workspace2 "2:Terminals"
-set $workspace3 "3:File"
-set $workspace4 "4:Pdf_Prsn"
-set $workspace5 "5:Others"
-set $workspace10 "10:VlcPlayer"
+set $workspace1 "1:"
+set $workspace2 "2:"
+set $workspace3 "3:"
+set $workspace4 "4:_"
+set $workspace5 "5:"
+set $workspace10 "10:"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -189,17 +195,20 @@ client.urgent $urgent-bg-color $urgent-bg-color $text-color #00ff00
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+#font xft:Cousine, FontAwesome 8
 
-bar {
-        status_command /home/nazmul/.config/i3/bumblebee-status/bumblebee-status -m uptime disk:home load cpu memory battery date time pasink -p interval=2.5 time.format="%I:%M %p" date.format="%a, %b %d %Y" home.path=/home -t solarized
-       colors {
-                background $bg-color
-	        	separator #757575
-	        	#                  border             background         text
-	        	focused_workspace  $bg-color          $bg-color          $text-color
-	        	inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-                urgent_workspace $urgent-bg-color $urgent-bg-color $text-colo
-
-        }
-}
+#bar {
+#		font xft:Cousine, FontAwesome 8
+#        status_command /home/nazmul/.config/i3/bumblebee-status/bumblebee-status -m uptime disk:home load cpu memory battery date time pasink -p interval=2.5 time.format="%I:%M %p" date.format="%a, %b %d %Y" home.path=/home -t solarized-powerline
+#
+#       colors {
+#                background $bg-color
+#	        	separator #757575
+#	        	#                  border             background         text
+#	        	focused_workspace  $bg-color          $bg-color          $text-color
+#	        	inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+#                urgent_workspace $urgent-bg-color $urgent-bg-color $text-color
+#
+#        }
+#}
 
