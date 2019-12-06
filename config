@@ -27,8 +27,8 @@ font pango:System San Francisco Display 8
 # font, it doesn’t scale on retina/hidpi displays.
 
 # startup settings
-exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec_always feh --randomize --bg-scale /home/nazmul/Pictures/theme/bodhi.png
+#exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always feh --randomize --bg-scale /home/nazmul/Pictures/theme/Flowing_Ribbon.jpg
 exec_always --no-startup--id ibus daemon
 exec killall -q <notification daemon>
 exec --no-startup-id dunst -config </home/nazmul/.config/dunst/dunstrc>
@@ -197,18 +197,18 @@ client.urgent $urgent-bg-color $urgent-bg-color $text-color #00ff00
 # finds out, if available)
 #font xft:Cousine, FontAwesome 8
 
-#bar {
-#		font xft:Cousine, FontAwesome 8
-#        status_command /home/nazmul/.config/i3/bumblebee-status/bumblebee-status -m uptime disk:home load cpu memory battery date time pasink -p interval=2.5 time.format="%I:%M %p" date.format="%a, %b %d %Y" home.path=/home -t solarized-powerline
-#
-#       colors {
-#                background $bg-color
-#	        	separator #757575
-#	        	#                  border             background         text
-#	        	focused_workspace  $bg-color          $bg-color          $text-color
-#	        	inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-#                urgent_workspace $urgent-bg-color $urgent-bg-color $text-color
-#
-#        }
-#}
+bar {
+		font xft:Cousine, FontAwesome 8
+        status_command /home/nazmul/.config/i3/bumblebee-status/bumblebee-status -m uptime disk:home load cpu memory battery date time pasink -p interval=2.5 time.format="%I:%M %p" date.format="%a, %b %d %Y" home.path=/home -t solarized-powerline
+
+       colors {
+                background $bg-color
+	        	separator #757575
+	        	#                  border             background         text
+	        	focused_workspace  $bg-color          $bg-color          $text-color
+	        	inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+                urgent_workspace $urgent-bg-color $urgent-bg-color $text-color
+
+        }
+}
 
