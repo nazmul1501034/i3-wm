@@ -1,10 +1,29 @@
 #!/bin/bash
+NC='\033[0m'
+RED='\033[31m'
+BLUE='\033[34m'
+
+
+
+launch_bar() {
+  MONITOR=$1 IFACE_ETH=${eth} IFACE_WLAN=${wlan} polybar "$2" &
+}
+
+
 
 # Terminate already running bar instances
 killall -q polybar
 
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+
+eth=$(ip link | grep -m 1 -E '\b(en)' | awk '{print substr($2, 1, length($2)-1)}')
+wlan=$(ip link | grep -m 1 -E '\b(wl)' | awk '{print substr($2, 1, length($2)-1)}')
+printf "Found network interfaces: ${BLUE}%s${NC} (eth), ${BLUE}%s${NC} (wlan)\\n" "${eth}" "${wlan}"
+
+# Use newline as field separator for looping over lines
+IFS=$'\n'
+
 
 # Launch bar1 and bar2
 
